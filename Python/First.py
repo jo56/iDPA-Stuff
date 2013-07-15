@@ -138,3 +138,5 @@ print 'guido' in tel    #returns true if 'guido' is a key in the dictionary
 x=4
 if x > 1 and x < 10:
     print "true"
+if (1 < x < 10):
+    print "true"
