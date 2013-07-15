@@ -1,0 +1,123 @@
+#include "Warrior.h"
+
+#include<iostream>
+
+
+Warrior::Warrior(void)
+{
+	name = "Warrior ";
+	totalHealth = 35;  
+	currentHealth = 35;
+	attackStat = 10;
+	defenseStat = 5;
+	defenseIncrease = 1;
+	speed = 3;
+	alive = "true";
+}
+
+
+Warrior::~Warrior(void)
+{
+	//creat function that would destroyother characters upon selection
+}
+
+
+
+
+void Warrior::attack()
+{
+	cout << "You choose to attack" << endl;
+	void takeDamage(int takeDam);
+	cout << "characterModel took "<< Slime::currentHealth << "damage!";
+}
+
+void Warrior::defend ()
+{
+	cout << "You choose to defend. Your defense has increased by 1." <<endl;
+	Warrior::defenseStat + 1;
+}
+
+void Warrior::takeDamage(int takeDam)
+{
+	int dad = takeDam - defenseStat; 
+	if (dad<0)
+	{
+		dad = 0;
+	}
+	currentHealth = currentHealth - dad;
+}
+
+int healthPot;
+int manaPot;
+
+void Warrior::useItem()
+{
+	int selection;
+	cin >> selection;
+
+	if (selection == 1)
+	{
+		if (healthPot >0)
+		{
+			currentHealth + 10;
+			if(currentHealth > totalHealth)
+			{
+				currentHealth= 35;
+			}
+		}
+	
+		else
+		{
+			cout << "You don't have anything!" <<endl;
+			void combat();
+		}
+	}
+
+	if (selection == 2)
+	{	
+		if (manaPot >0)
+		{
+			cout <<"you cannot use this!" << endl;
+		}
+		else
+		{
+			cout << "You don't have anything!" <<endl;
+			void combat();
+		}
+	}
+
+	if (selection == 3)
+	{
+		void combat();
+	}
+}
+
+void Warrior::combat()
+	{
+	int selection;
+	cin >> selection;
+
+	if (selection == 1) 
+	{
+		void attack();
+	}
+
+	if (selection == 2)
+	{
+		void defend();
+	}
+
+	if (selection == 3)
+	{
+		void useItem();
+	}
+}
+
+void Warrior::death()
+{
+	if (currentHealth <= 0)
+	{
+	cout << "You are dead. Feel free to try again." << endl;
+	alive = false;
+	}
+}
